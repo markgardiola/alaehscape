@@ -23,7 +23,7 @@ import UsersManagement from "./pages/admin/UsersManagement";
 import BeachResortListings from "./pages/admin/BeachResortListings";
 import ManageBooking from "./pages/admin/ManageBooking";
 import Dashboard from "./pages/admin/Dashboard";
-import AdminSignIn from "./pages/adminSignIn";
+import AdminSignIn from "./pages/AdminSignIn";
 // import Feedbacks from "./pages/admin/Feedbacks";
 import ResortDetails from "./pages/admin/ResortDetails";
 import EditResort from "./pages/admin/EditResort";
