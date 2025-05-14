@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_URL } from "../../config";
 
 const AdminSignIn = () => {
   const [values, setValues] = useState({
@@ -20,7 +21,7 @@ const AdminSignIn = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/login", values)
+      .post(`${API_URL}/api/login`, values)
       .then((res) => {
         if (res.data.token && res.data.user) {
           const { token, user } = res.data;

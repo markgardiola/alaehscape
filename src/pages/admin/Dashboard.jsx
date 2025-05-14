@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../styles/dashboard.css";
+import { API_URL } from "../../../config";
 
 const Dashboard = () => {
   const [totalUsers, setTotalUsers] = useState(0);
@@ -12,9 +13,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchTotalUsers = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/total_users"
-        );
+        const response = await axios.get(`${API_URL}/api/total_users`);
         setTotalUsers(response.data.totalUsers);
       } catch (error) {
         console.error("Error fetching total users:", error);
@@ -27,9 +26,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchTotalResorts = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/total_resorts"
-        );
+        const response = await axios.get(`${API_URL}/api/total_resorts`);
         setTotalResorts(response.data.totalResorts);
       } catch (error) {
         console.error("Error fetching total resorts:", error);
@@ -42,9 +39,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchTotalBookings = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/total_bookings"
-        );
+        const response = await axios.get(`${API_URL}/api/total_bookings`);
         setTotalBookings(response.data.totalBookings);
       } catch (error) {
         console.error("Error fetching total bookings:", error);
@@ -56,8 +51,8 @@ const Dashboard = () => {
 
   return (
     <div className="container">
-      <h2 className="mb-4">Admin Overview</h2>
-      <div className="row g-4">
+      <h2 className="mb-4 text-center">Admin Overview</h2>
+      <div className="row g-4 d-flex justify-content-center">
         <div className="col-md-3 col-sm-6">
           <Link to="/adminDashboard/users" className="text-decoration-none">
             <div className="card dashboard-card text-white bg-primary h-100">

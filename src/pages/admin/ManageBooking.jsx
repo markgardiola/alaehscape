@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { API_URL } from "../../../config";
 
 const ManageBooking = () => {
   const [bookings, setBookings] = useState([]);
@@ -14,7 +15,7 @@ const ManageBooking = () => {
   const fetchBookings = () => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5000/api/bookings", {
+      .get(`${API_URL}/api/bookings`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -31,7 +32,7 @@ const ManageBooking = () => {
     const token = localStorage.getItem("token");
     axios
       .put(
-        `http://localhost:5000/api/bookings/${bookingId}/status`,
+        `${API_URL}/api/bookings/${bookingId}/status`,
         { status },
         {
           headers: {

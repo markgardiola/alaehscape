@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_URL } from "../../config";
 
 const ViewDetails = () => {
   const { id } = useParams();
@@ -14,9 +15,7 @@ const ViewDetails = () => {
   useEffect(() => {
     const fetchResort = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/resorts/${id}`
-        );
+        const response = await axios.get(`${API_URL}/api/resorts/${id}`);
         setResort(response.data);
         setLoading(false);
       } catch (err) {
@@ -53,7 +52,7 @@ const ViewDetails = () => {
         {resort.image && (
           <div className="mb-4">
             <img
-              src={`http://localhost:5000/uploads/${resort.image}`}
+              src={`${API_URL}/uploads/${resort.image}`}
               alt={resort.name}
               className="img-fluid rounded-3 shadow-lg"
               style={{ height: "480px", objectFit: "cover", width: "100%" }}

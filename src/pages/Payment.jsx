@@ -3,6 +3,7 @@ import { Card, Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 const Payment = () => {
   const [receipt, setReceipt] = useState(null);
@@ -11,7 +12,7 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const gcashNumber = "0917-123-4567";
-  const QrCode = "../../public/images/QR_Code.png";
+  const QrCode = "/images/QR_code.png";
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -35,7 +36,7 @@ const Payment = () => {
       formData.append("receipt", receipt);
       formData.append("bookingId", bookingId);
 
-      await axios.post("http://localhost:5000/api/upload_receipt", formData, {
+      await axios.post(`${API_URL}/api/upload_receipt`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

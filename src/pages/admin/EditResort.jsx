@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_URL } from "../../../config";
 
 const EditResort = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const EditResort = () => {
   useEffect(() => {
     const fetchResort = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/resorts/${id}`);
+        const res = await axios.get(`${API_URL}/api/resorts/${id}`);
         const data = res.data;
 
         setResortData({
@@ -102,7 +103,7 @@ const EditResort = () => {
         formData.append("image", resortData.image);
       }
 
-      await axios.put(`http://localhost:5000/api/resorts/${id}`, formData, {
+      await axios.put(`${API_URL}/api/resorts/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -167,7 +168,7 @@ const EditResort = () => {
           {resortData.existingImage && (
             <div className="mb-2">
               <img
-                src={`http://localhost:5000/uploads/${resortData.existingImage}`}
+                src={`${API_URL}/uploads/${resortData.existingImage}`}
                 alt="Current"
                 style={{ width: "200px", height: "130px", objectFit: "cover" }}
                 className="rounded shadow-sm"

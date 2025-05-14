@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 const ViewMyBooking = () => {
   const { bookingId } = useParams();
@@ -15,7 +16,7 @@ const ViewMyBooking = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`http://localhost:5000/api/bookings/${bookingId}`, {
+      .get(`${API_URL}/api/bookings/${bookingId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -126,7 +127,7 @@ const ViewMyBooking = () => {
             <div className="col-6">
               {booking.receipt ? (
                 <img
-                  src={`http://localhost:5000/uploads/receipts/${booking.receipt}`}
+                  src={`${API_URL}/uploads/receipts/${booking.receipt}`}
                   alt="Receipt"
                   className="img-thumbnail"
                   style={{
@@ -173,7 +174,7 @@ const ViewMyBooking = () => {
               </button>
             </div>
             <img
-              src={`http://localhost:5000/uploads/receipts/${booking.receipt}`}
+              src={`${API_URL}/uploads/receipts/${booking.receipt}`}
               alt="Receipt"
               className="img-fluid rounded"
               style={{ objectFit: "contain", maxHeight: "80vh" }}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../../config";
 
 const ResortDetails = () => {
   const { id } = useParams();
@@ -11,9 +12,7 @@ const ResortDetails = () => {
   useEffect(() => {
     const fetchResort = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/resorts/${id}`
-        );
+        const response = await axios.get(`${API_URL}/api/resorts/${id}`);
         setResort(response.data);
         setLoading(false);
       } catch (err) {
@@ -48,7 +47,7 @@ const ResortDetails = () => {
       {resort.image && (
         <div className="mb-4 w-75">
           <img
-            src={`http://localhost:5000/uploads/${resort.image}`}
+            src={`${API_URL}/uploads/${resort.image}`}
             alt={resort.name}
             className="img-fluid rounded-4 shadow-sm"
             style={{ height: "480px", objectFit: "cover", width: "100%" }}

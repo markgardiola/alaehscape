@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import { API_URL } from "../../../config";
 
 const BeachResortListings = () => {
   const [resorts, setResorts] = useState([]);
@@ -12,7 +13,7 @@ const BeachResortListings = () => {
 
   const fetchResorts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/resorts");
+      const response = await axios.get(`${API_URL}/api/resorts`);
       setResorts(response.data);
     } catch (error) {
       console.error("Failed to fetch resorts:", error);
@@ -25,7 +26,7 @@ const BeachResortListings = () => {
 
   const handleDeleteResort = async (resortId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/resorts/${resortId}`);
+      await axios.delete(`${API_URL}/api/resorts/${resortId}`);
       setResorts((prev) => prev.filter((resort) => resort.id !== resortId));
       toast.success("Resort deleted successfully!");
     } catch (error) {
@@ -76,7 +77,7 @@ const BeachResortListings = () => {
                   <td>{indexOfFirstResort + index + 1}</td>
                   <td className="d-flex justify-content-center">
                     <img
-                      src={`http://localhost:5000/uploads/${resort.image}`}
+                      src={`${API_URL}/uploads/${resort.image}`}
                       alt={resort.name}
                       style={{
                         width: "100px",

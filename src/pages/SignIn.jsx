@@ -4,6 +4,7 @@ import axios from "axios";
 import formbg from "/images/form-bg.jpg";
 import { toast } from "react-toastify";
 import Footer from "../components/Footer";
+import { API_URL } from "../../config";
 
 const SignIn = () => {
   const [values, setValues] = useState({
@@ -25,7 +26,7 @@ const SignIn = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/login", {
+      .post(`${API_URL}/api/login`, {
         email: values.email,
         password: values.password,
       })

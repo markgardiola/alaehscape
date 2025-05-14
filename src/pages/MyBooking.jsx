@@ -3,6 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { API_URL } from "../../config";
 
 const MyBooking = () => {
   const [bookings, setBookings] = useState([]);
@@ -15,7 +16,7 @@ const MyBooking = () => {
 
   const fetchBookings = () => {
     axios
-      .get(`http://localhost:5000/api/bookings/user/${userId}`, {
+      .get(`${API_URL}/api/bookings/user/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -37,14 +38,11 @@ const MyBooking = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(
-            `http://localhost:5000/api/bookings/${bookingId}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          await axios.delete(`${API_URL}/api/bookings/${bookingId}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
           fetchBookings();
           toast.success(
             "Deleted!",
@@ -62,7 +60,7 @@ const MyBooking = () => {
   const updateBookingStatus = (bookingId, status) => {
     axios
       .put(
-        `http://localhost:5000/api/bookings/${bookingId}/status`,
+        `${API_URL}/api/bookings/${bookingId}/cancel`,
         { status },
         {
           headers: {

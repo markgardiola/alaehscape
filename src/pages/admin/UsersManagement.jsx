@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import { API_URL } from "../../../config";
 
 const UsersManagement = () => {
   const [users, setUsers] = useState([]);
@@ -18,7 +19,7 @@ const UsersManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/users");
+      const res = await axios.get(`${API_URL}/api/users`);
       setUsers(res.data);
       setLoading(false);
     } catch (err) {
@@ -34,10 +35,7 @@ const UsersManagement = () => {
 
   const handleEditSubmit = async () => {
     try {
-      await axios.put(
-        `http://localhost:5000/api/users/${editingUser.id}`,
-        editingUser
-      );
+      await axios.put(`${API_URL}/api/users/${editingUser.id}`, editingUser);
       toast.success("User updated successfully!");
       setEditingUser(null);
       fetchUsers();
@@ -50,7 +48,7 @@ const UsersManagement = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/${userId}`);
+      await axios.delete(`${API_URL}/api/users/${userId}`);
       toast.success("User deleted successfully!");
       fetchUsers();
     } catch (err) {
@@ -245,7 +243,7 @@ const UsersManagement = () => {
                     type="text"
                     className="form-control"
                     name="phone"
-                    value={editingUser.phone}
+                    value={editingUser.phone || ""}
                     onChange={handleEditChange}
                   />
                 </div>
@@ -255,7 +253,7 @@ const UsersManagement = () => {
                     type="text"
                     className="form-control"
                     name="address"
-                    value={editingUser.address}
+                    value={editingUser.address || ""}
                     onChange={handleEditChange}
                   />
                 </div>

@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { API_URL } from "../../config";
 
 const SignUp = () => {
   const [values, setValues] = useState({
@@ -25,7 +26,7 @@ const SignUp = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/register_user", values)
+      .post(`${API_URL}/api/register_user`, values)
       .then((res) => {
         toast.success(res.data.success, {
           position: "top-right",

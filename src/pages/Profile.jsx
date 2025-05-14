@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_URL } from "../../config";
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -23,7 +24,7 @@ const Profile = () => {
       navigate("/signIn");
     } else {
       axios
-        .get("http://localhost:5000/api/get_user_info", {
+        .get(`${API_URL}/api/get_user_info`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((res) => {
@@ -81,7 +82,7 @@ const Profile = () => {
     }
 
     axios
-      .post("http://localhost:5000/api/update_user", updatedUser, {
+      .post(`${API_URL}/api/update_user`, updatedUser, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_URL } from "../../config";
 
 const Booking = () => {
   const { resortId } = useParams();
@@ -21,7 +22,7 @@ const Booking = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/resorts/${resortId}`)
+      .get(`${API_URL}/api/resorts/${resortId}`)
       .then((response) => setResort(response.data))
       .catch((error) => console.error("Error fetching resort details:", error));
 
@@ -32,7 +33,7 @@ const Booking = () => {
       setForm((prevForm) => ({ ...prevForm, email }));
 
       axios
-        .get("http://localhost:5000/api/get_user_info", {
+        .get(`${API_URL}/api/get_user_info`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -63,7 +64,7 @@ const Booking = () => {
 
     axios
       .post(
-        "http://localhost:5000/api/book",
+        `${API_URL}/api/book`,
         {
           resortId: resort.id,
           fullName: form.fullName,
@@ -124,7 +125,7 @@ const Booking = () => {
                       key={index}
                     >
                       <img
-                        src={`http://localhost:5000/uploads/${img}`}
+                        src={`${API_URL}/uploads/${img}`}
                         className="d-block w-100"
                         alt="Resort"
                         style={{ height: "300px", objectFit: "cover" }}
@@ -135,7 +136,7 @@ const Booking = () => {
               </div>
             ) : (
               <img
-                src={`http://localhost:5000/uploads/${resort.image}`}
+                src={`${API_URL}/uploads/${resort.image}`}
                 className="img-fluid rounded"
                 alt="Resort"
               />

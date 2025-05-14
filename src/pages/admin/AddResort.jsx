@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_URL } from "../../../config";
 
 const AddResort = () => {
   const [name, setName] = useState("");
@@ -42,15 +43,11 @@ const AddResort = () => {
       formData.append("rooms", JSON.stringify(rooms));
       formData.append("amenities", JSON.stringify(amenities));
 
-      const response = await axios.post(
-        "http://localhost:5000/api/add_resort",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`${API_URL}/api/add_resort`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       toast.success("Resort added successfully!");
       navigate("/adminDashboard/resorts");
     } catch (err) {
