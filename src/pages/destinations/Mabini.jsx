@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { API_URL } from "../../../config";
 
 const SanJuanLaiya = () => {
   const [resorts, setResorts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/resorts/location/Mabini, Batangas")
+      .get(`${API_URL}/api/resorts/location/Mabini, Batangas`)
       .then((response) => setResorts(response.data))
       .catch((error) => console.error("Error fetching resorts:", error));
   }, []);
@@ -49,7 +50,7 @@ const SanJuanLaiya = () => {
               <div className="row g-0">
                 <div className="col-md-4 d-flex flex-column justify-content-between w-25">
                   <img
-                    src={`http://localhost:5000/uploads/${resort.image}`}
+                    src={`${API_URL}/uploads/${resort.image}`}
                     className="img-fluid rounded m-2 shadow"
                     alt={resort.name}
                     style={{ height: "200px", objectFit: "cover" }}
