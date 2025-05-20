@@ -54,6 +54,7 @@ const App = () => {
               element={<ViewMyBooking />}
             />
             <Route path="about" element={<About />} />
+            <Route path="viewDetails/:id" element={<ViewDetails />} />
             <Route path="booking/:resortId" element={<Booking />} />
             <Route path="payment" element={<Payment />} />
             <Route path="destinations" element={<Destinations />} />
@@ -64,7 +65,6 @@ const App = () => {
               path="destinations/san-juan-laiya"
               element={<SanJuanLaiya />}
             />
-            <Route path="viewDetails/:id" element={<ViewDetails />} />
           </Route>
           <Route
             path="adminDashboard"
