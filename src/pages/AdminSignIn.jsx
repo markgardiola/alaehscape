@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { API_URL } from "../../config";
+import formbg from "/images/dashboard.png";
 
 const AdminSignIn = () => {
   const [values, setValues] = useState({
@@ -64,46 +65,78 @@ const AdminSignIn = () => {
   };
 
   return (
-    <div className="container-fluid d-flex flex-column justify-content-center align-items-center vh-100">
-      <form
-        className="form-control p-5 mb-4 rounded-3 shadow w-25"
-        onSubmit={handleSubmit}
-        autoComplete="off"
+    <div className="container-fluid d-flex justify-content-center align-items-center w-100 vh-100">
+      <div
+        className="row w-75 py-4 w-md-75 border border-2 border-success rounded-4 m-2"
+        style={{
+          boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+        }}
       >
-        <h2 className="text-center">Admin Sign In</h2>
-        <div>
-          <label htmlFor="email" className="mt-3">
-            Email
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter your email"
-            required
-            name="email"
-            onChange={handleChange}
+        <div className="col-md-6 d-none d-md-flex justify-content-center align-items-center p-3 border-end border-2 border-success">
+          <img
+            src={formbg}
+            alt="Form Background"
+            className="img-fluid border rounded border-2 border-success"
+            style={{
+              maxHeight: "500px",
+            }}
           />
         </div>
-        <div>
-          <label htmlFor="password" className="mt-3">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter your password"
-            required
-            name="password"
-            onChange={handleChange}
-          />
+
+        <div className="col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+          <form onSubmit={handleSubmit} className="w-75" autoComplete="off">
+            <h1 className="text-center mb-4 text-success fw-bold">
+              Admin Sign In
+            </h1>
+
+            <div>
+              <label htmlFor="email" className="form-label text-success">
+                Email
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter your email"
+                required
+                name="email"
+                onChange={handleChange}
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.2)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                }}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="password" className="mt-3 text-success">
+                Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter your password"
+                required
+                name="password"
+                onChange={handleChange}
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.2)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                }}
+              />
+            </div>
+
+            <div className="d-flex flex-column justify-content-center mt-4">
+              <button className="btn btn-outline-success fw-bold" type="submit">
+                Sign In
+              </button>
+
+              <Link to="/signIn" className="text-center text-success mt-3">
+                Go back
+              </Link>
+            </div>
+          </form>
         </div>
-        <div className="d-flex flex-column justify-content-center mt-4">
-          <button className="btn btn-primary mb-3">Sign In</button>
-        </div>
-      </form>
-      <Link to="/signIn" className="btn btn-secondary mb-3">
-        Go Back
-      </Link>
+      </div>
     </div>
   );
 };
