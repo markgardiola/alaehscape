@@ -103,7 +103,7 @@ const UsersManagement = () => {
                     <td>{user.address}</td>
                     <td className="text-center">
                       <button
-                        className="btn btn-sm btn-outline-primary me-2"
+                        className="btn btn-sm btn-outline-primary mx-1 my-1"
                         onClick={() => setEditingUser(user)}
                         data-bs-toggle="modal"
                         data-bs-target="#editModal"
@@ -111,7 +111,7 @@ const UsersManagement = () => {
                         Edit
                       </button>
                       <button
-                        className="btn btn-sm btn-danger"
+                        className="btn btn-sm btn-danger mx-1 my-1"
                         onClick={() => {
                           Swal.fire({
                             title: "Are you sure?",

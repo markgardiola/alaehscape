@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API_URL } from "../../../config";
 
-const SanJuanLaiya = () => {
+const Nasugbu = () => {
   const [resorts, setResorts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const resortsPerPage = 5;
@@ -13,11 +13,12 @@ const SanJuanLaiya = () => {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/resorts/location/Lian, Batangas`)
+      .get(`${API_URL}/api/resorts/location/Nasugbu, Batangas`)
       .then((response) => setResorts(response.data))
       .catch((error) => console.error("Error fetching resorts:", error));
   }, []);
 
+  // Pagination logic
   const indexOfLastResort = currentPage * resortsPerPage;
   const indexOfFirstResort = indexOfLastResort - resortsPerPage;
   const currentResorts = resorts.slice(indexOfFirstResort, indexOfLastResort);
@@ -33,6 +34,7 @@ const SanJuanLaiya = () => {
           ← Back
         </button>
       </div>
+
       <h1
         className="display-5 mb-4 text-center text-uppercase fw-light"
         style={{
@@ -40,16 +42,15 @@ const SanJuanLaiya = () => {
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
         }}
       >
-        Lian, Batangas
+        Nasugbu, Batangas
       </h1>
       <p
         className="fs-4 mb-5 text-center text-capitalize fw-light"
-        style={{
-          letterSpacing: "5px",
-        }}
+        style={{ letterSpacing: "5px" }}
       >
-        popular destination for outdoor activities, including beach side camping
+        Sun, sea, and serenity 🌅
       </p>
+
       <div className="row">
         {currentResorts.map((resort) => (
           <div className="col-12 mb-4" key={resort.id}>
@@ -173,4 +174,4 @@ const SanJuanLaiya = () => {
   );
 };
 
-export default SanJuanLaiya;
+export default Nasugbu;

@@ -115,7 +115,7 @@ const ManageBooking = () => {
                   </td>
                   <td className="text-center">
                     <button
-                      className="btn btn-sm btn-outline-primary me-2"
+                      className="btn btn-sm btn-outline-primary mx-1 my-1"
                       onClick={() =>
                         navigate(
                           `/adminDashboard/bookingDetails/${booking.booking_id}`
@@ -125,7 +125,7 @@ const ManageBooking = () => {
                       View
                     </button>
                     <button
-                      className="btn btn-sm btn-outline-success me-2"
+                      className="btn btn-sm btn-outline-success mx-1 my-1"
                       onClick={() => {
                         Swal.fire({
                           title: "Approve this booking?",
@@ -150,7 +150,7 @@ const ManageBooking = () => {
                     </button>
 
                     <button
-                      className="btn btn-sm btn-danger"
+                      className="btn btn-sm btn-danger mx-1 my-1"
                       onClick={() => {
                         Swal.fire({
                           title: "Cancel this booking?",

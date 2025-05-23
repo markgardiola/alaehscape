@@ -149,14 +149,14 @@ const MyBooking = () => {
                   <td>{new Date(booking.created_at).toLocaleDateString()}</td>
                   <td className="text-center">
                     <button
-                      className="btn btn-sm btn-outline-primary me-2"
+                      className="btn btn-sm btn-outline-primary mx-1 my-1"
                       onClick={() => navigate(`/viewMyBooking/${booking.id}`)}
                     >
                       View
                     </button>
 
                     <button
-                      className="btn btn-sm btn-warning me-2"
+                      className="btn btn-sm btn-warning mx-1 my-1"
                       onClick={() => {
                         Swal.fire({
                           title: "Cancel this booking?",
@@ -181,7 +181,7 @@ const MyBooking = () => {
                     </button>
 
                     <button
-                      className="btn btn-danger btn-sm"
+                      className="btn btn-danger btn-sm mx-1 my-1"
                       onClick={() => deleteBooking(booking.id)}
                     >
                       <i className="bi bi-trash"></i>

@@ -92,18 +92,18 @@ const BeachResortListings = () => {
                   <td className="text-center">
                     <Link
                       to={`/adminDashboard/resorts/${resort.id}`}
-                      className="btn btn-sm btn-outline-success me-2"
+                      className="btn btn-sm btn-outline-success mx-1 my-1"
                     >
                       View
                     </Link>
                     <Link
                       to={`/adminDashboard/resorts/${resort.id}/edit`}
-                      className="btn btn-sm btn-outline-primary me-2"
+                      className="btn btn-sm btn-outline-primary mx-1 my-1"
                     >
                       Edit
                     </Link>
                     <button
-                      className="btn btn-sm btn-danger"
+                      className="btn btn-sm btn-danger mx-1 my-1"
                       onClick={() => {
                         Swal.fire({
                           title: "Are you sure?",

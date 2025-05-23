@@ -36,6 +36,8 @@ import Payment from "./pages/Payment";
 import BookingDetails from "./pages/admin/BookingDetails";
 import MyBooking from "./pages/MyBooking";
 import ViewMyBooking from "./pages/ViewMyBooking";
+import Lobo from "./pages/destinations/Lobo";
+import Nasugbu from "./pages/destinations/Nasugbu";
 
 const App = () => {
   return (
@@ -59,6 +61,8 @@ const App = () => {
             <Route path="payment" element={<Payment />} />
             <Route path="destinations" element={<Destinations />} />
             <Route path="destinations/calatagan" element={<Calatagan />} />
+            <Route path="destinations/lobo" element={<Lobo />} />
+            <Route path="destinations/nasugbu" element={<Nasugbu />} />
             <Route path="destinations/mabini" element={<Mabini />} />
             <Route path="destinations/lian" element={<Lian />} />
             <Route

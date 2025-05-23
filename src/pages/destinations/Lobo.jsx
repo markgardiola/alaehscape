@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API_URL } from "../../../config";
 
-const SanJuanLaiya = () => {
+const Lobo = () => {
   const [resorts, setResorts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const resortsPerPage = 5;
@@ -13,7 +13,7 @@ const SanJuanLaiya = () => {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/resorts/location/Lian, Batangas`)
+      .get(`${API_URL}/api/resorts/location/Lobo, Batangas`)
       .then((response) => setResorts(response.data))
       .catch((error) => console.error("Error fetching resorts:", error));
   }, []);
@@ -40,7 +40,7 @@ const SanJuanLaiya = () => {
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
         }}
       >
-        Lian, Batangas
+        Lobo, Batangas
       </h1>
       <p
         className="fs-4 mb-5 text-center text-capitalize fw-light"
@@ -48,7 +48,7 @@ const SanJuanLaiya = () => {
           letterSpacing: "5px",
         }}
       >
-        popular destination for outdoor activities, including beach side camping
+        Chill vibes and coastal views 🌊
       </p>
       <div className="row">
         {currentResorts.map((resort) => (
@@ -173,4 +173,4 @@ const SanJuanLaiya = () => {
   );
 };
 
-export default SanJuanLaiya;
+export default Lobo;
