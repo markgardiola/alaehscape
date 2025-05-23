@@ -37,7 +37,8 @@ const defaultDestinations = [
 ];
 
 const Destinations = ({ searchTerm }) => {
-  const [filteredDestinations, setFilteredDestinations] = useState(defaultDestinations);
+  const [filteredDestinations, setFilteredDestinations] =
+    useState(defaultDestinations);
 
   useEffect(() => {
     if (searchTerm) {
