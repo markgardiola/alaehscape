@@ -107,7 +107,15 @@ const EditResort = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
+      const updated = await axios.get(`${API_URL}/api/resorts/${id}`);
+      setResortData((prev) => ({
+        ...prev,
+        image: null,
+        existingImage: updated.data.image,
+      }));
+
       toast.success("Resort updated successfully!");
+
       navigate("/adminDashboard/resorts");
     } catch (error) {
       console.error(error);
@@ -168,7 +176,11 @@ const EditResort = () => {
           {resortData.existingImage && (
             <div className="mb-2">
               <img
-                src={`${API_URL}/uploads/${resortData.existingImage}`}
+                src={
+                  resortData.existingImage.startsWith("http")
+                    ? resortData.existingImage
+                    : `${API_URL}/uploads/${resortData.existingImage}`
+                }
                 alt="Current"
                 style={{ width: "200px", height: "130px", objectFit: "cover" }}
                 className="rounded shadow-sm"
@@ -181,6 +193,17 @@ const EditResort = () => {
             className="form-control"
             onChange={handleImageChange}
           />
+          {resortData.image && (
+            <div className="mt-2">
+              <p className="mb-1">New Image Preview:</p>
+              <img
+                src={URL.createObjectURL(resortData.image)}
+                alt="Preview"
+                style={{ width: "200px", height: "130px", objectFit: "cover" }}
+                className="rounded shadow"
+              />
+            </div>
+          )}
         </div>
 
         <hr />

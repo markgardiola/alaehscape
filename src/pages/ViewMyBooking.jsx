@@ -127,7 +127,7 @@ const ViewMyBooking = () => {
             <div className="col-6">
               {booking.receipt ? (
                 <img
-                  src={`${API_URL}/uploads/receipts/${booking.receipt}`}
+                  src={booking.receipt}
                   alt="Receipt"
                   className="img-thumbnail"
                   style={{
@@ -174,7 +174,7 @@ const ViewMyBooking = () => {
               </button>
             </div>
             <img
-              src={`${API_URL}/uploads/receipts/${booking.receipt}`}
+              src={booking.receipt}
               alt="Receipt"
               className="img-fluid rounded"
               style={{ objectFit: "contain", maxHeight: "80vh" }}

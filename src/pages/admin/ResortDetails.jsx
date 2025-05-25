@@ -47,7 +47,7 @@ const ResortDetails = () => {
       {resort.image && (
         <div className="mb-4 w-75">
           <img
-            src={`${API_URL}/uploads/${resort.image}`}
+            src={resort.image}
             alt={resort.name}
             className="img-fluid rounded-4 shadow-sm"
             style={{ height: "480px", objectFit: "cover", width: "100%" }}

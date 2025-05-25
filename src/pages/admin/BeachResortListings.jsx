@@ -77,12 +77,13 @@ const BeachResortListings = () => {
                   <td>{indexOfFirstResort + index + 1}</td>
                   <td className="d-flex justify-content-center">
                     <img
-                      src={`${API_URL}/uploads/${resort.image}`}
+                      src={resort.image}
                       alt={resort.name}
                       style={{
                         width: "100px",
                         height: "70px",
                         objectFit: "cover",
+                        borderRadius: "6px",
                       }}
                     />
                   </td>

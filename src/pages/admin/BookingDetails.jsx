@@ -119,7 +119,7 @@ const BookingDetails = () => {
               <td>
                 {booking.receipt ? (
                   <img
-                    src={`${API_URL}/uploads/receipts/${booking.receipt}`}
+                    src={booking.receipt}
                     alt="Receipt"
                     className="img-fluid rounded border"
                     style={{ maxHeight: "200px", cursor: "pointer" }}
@@ -162,7 +162,7 @@ const BookingDetails = () => {
                 </button>
               </div>
               <img
-                src={`${API_URL}/uploads/receipts/${booking.receipt}`}
+                src={booking.receipt}
                 alt="Receipt"
                 className="img-fluid mx-auto d-block"
                 style={{

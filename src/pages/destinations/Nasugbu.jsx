@@ -58,7 +58,7 @@ const Nasugbu = () => {
               <div className="row g-0">
                 <div className="col-md-4 d-flex flex-column justify-content-between w-25">
                   <img
-                    src={`${API_URL}/uploads/${resort.image}`}
+                    src={resort.image}
                     className="img-fluid rounded m-2 shadow"
                     alt={resort.name}
                     style={{ height: "200px", objectFit: "cover" }}

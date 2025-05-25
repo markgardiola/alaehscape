@@ -9,6 +9,7 @@ const AddResort = () => {
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
   const [rooms, setRooms] = useState([]);
   const [roomName, setRoomName] = useState("");
   const [roomPrice, setRoomPrice] = useState("");
@@ -32,6 +33,12 @@ const AddResort = () => {
     setRoomPrice("");
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    setImagePreview(URL.createObjectURL(file)); // ✅ for preview
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -48,6 +55,7 @@ const AddResort = () => {
           "Content-Type": "multipart/form-data",
         },
       });
+
       toast.success("Resort added successfully!");
       navigate("/adminDashboard/resorts");
     } catch (err) {
@@ -117,9 +125,18 @@ const AddResort = () => {
             id="image"
             className="form-control"
             accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={handleImageChange}
             required
           />
+          {imagePreview && (
+            <div className="mt-2">
+              <img
+                src={imagePreview}
+                alt="Preview"
+                style={{ maxWidth: "200px", borderRadius: "8px" }}
+              />
+            </div>
+          )}
         </div>
 
         <div className="mb-3">

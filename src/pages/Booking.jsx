@@ -125,7 +125,7 @@ const Booking = () => {
                       key={index}
                     >
                       <img
-                        src={`${API_URL}/uploads/${img}`}
+                        src={img}
                         className="d-block w-100"
                         alt="Resort"
                         style={{ height: "300px", objectFit: "cover" }}
@@ -136,7 +136,7 @@ const Booking = () => {
               </div>
             ) : (
               <img
-                src={`${API_URL}/uploads/${resort.image}`}
+                src={resort.image}
                 className="img-fluid rounded"
                 alt="Resort"
               />
