@@ -75,7 +75,7 @@ const BeachResortListings = () => {
               currentResorts.map((resort, index) => (
                 <tr key={resort.id}>
                   <td>{indexOfFirstResort + index + 1}</td>
-                  <td className="d-flex justify-content-center">
+                  <td className="d-flex justify-content-center align-items-center">
                     <img
                       src={resort.image}
                       alt={resort.name}
