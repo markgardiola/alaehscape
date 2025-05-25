@@ -99,23 +99,18 @@ const EditResort = () => {
       formData.append("description", resortData.description);
       formData.append("rooms", JSON.stringify(resortData.rooms));
       formData.append("amenities", JSON.stringify(resortData.amenities));
+
       if (resortData.image) {
         formData.append("image", resortData.image);
+      } else {
+        formData.append("existingImage", resortData.existingImage);
       }
 
       await axios.put(`${API_URL}/api/resorts/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      const updated = await axios.get(`${API_URL}/api/resorts/${id}`);
-      setResortData((prev) => ({
-        ...prev,
-        image: null,
-        existingImage: updated.data.image,
-      }));
-
       toast.success("Resort updated successfully!");
-
       navigate("/adminDashboard/resorts");
     } catch (error) {
       console.error(error);
