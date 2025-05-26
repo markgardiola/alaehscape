@@ -7,7 +7,7 @@ import { API_URL } from "../../../config";
 const SanJuanLaiya = () => {
   const [resorts, setResorts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const resortsPerPage = 5;
+  const resortsPerPage = 4;
 
   const navigate = useNavigate();
 

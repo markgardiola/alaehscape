@@ -7,7 +7,7 @@ import { API_URL } from "../../../config";
 const SanJuanLaiya = () => {
   const [resorts, setResorts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const resortsPerPage = 5;
+  const resortsPerPage = 4;
 
   const navigate = useNavigate();
 
@@ -18,7 +18,6 @@ const SanJuanLaiya = () => {
       .catch((error) => console.error("Error fetching resorts:", error));
   }, []);
 
-  // Pagination logic
   const indexOfLastResort = currentPage * resortsPerPage;
   const indexOfFirstResort = indexOfLastResort - resortsPerPage;
   const currentResorts = resorts.slice(indexOfFirstResort, indexOfLastResort);
