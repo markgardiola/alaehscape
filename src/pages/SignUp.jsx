@@ -52,12 +52,12 @@ const SignUp = () => {
 
         <div>
           <label htmlFor="username" className="form-label text-success">
-            Username
+            Full Name
           </label>
           <input
             type="username"
             className="form-control"
-            placeholder="Enter your username"
+            placeholder="Enter your Full Name"
             required
             name="username"
             onChange={handleChange}
