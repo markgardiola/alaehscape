@@ -34,7 +34,7 @@ const ViewDetails = () => {
 
   return (
     <div className="container mt-5 py-5 d-flex justify-content-center">
-      <div className="border border-2 border-success rounded-4 p-4 w-75">
+      <div className="border border-2 border-success rounded-4 p-4 pb-5 w-75">
         <div className="mb-4">
           <button
             className="btn btn-outline-secondary"
@@ -47,7 +47,7 @@ const ViewDetails = () => {
         <p className="fs-5 text-muted mb-2">
           <strong>Location:</strong> {resort.location}
         </p>
-        <p className="fs-5 mb-4">{resort.description}</p>
+        <p className="fs-5 mb-4 text-wrap text-break">{resort.description}</p>
 
         {resort.image && (
           <div className="mb-4">
