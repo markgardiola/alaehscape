@@ -69,7 +69,7 @@ const SignUp = () => {
         </div>
 
         <div>
-          <label htmlFor="email" className="form-label text-success">
+          <label htmlFor="email" className="form-label mt-3 text-success">
             Email
           </label>
           <input
