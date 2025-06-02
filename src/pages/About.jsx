@@ -38,7 +38,7 @@ const About = () => {
               >
                 Welcome to Ala-Eh-scape! We're your gateway to the breathtaking
                 shores of Batangas, where life slows down, and connections grow
-                deeper. Our passion is helping you find the perfect excape-a
+                deeper. Our passion is helping you find the perfect escape-a
                 chance to step away from the daily grind, immerse yourself in
                 nature's beauty, and cherish quality time with family and
                 friends. We believe in the power of a good getaway to nurture
