@@ -154,7 +154,7 @@ const SignIn = () => {
                   >
                     <i
                       className={`bi ${
-                        showPassword ? "bi-eye-slash" : "bi-eye"
+                        showPassword ? "bi-eye" : "bi-eye-slash"
                       }`}
                     ></i>
                   </button>

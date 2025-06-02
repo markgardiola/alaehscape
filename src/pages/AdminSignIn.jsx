@@ -137,7 +137,7 @@ const AdminSignIn = () => {
                   tabIndex={-1}
                 >
                   <i
-                    className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}
+                    className={`bi ${showPassword ? "bi-eye" : "bi-eye-slash"}`}
                   ></i>
                 </button>
               </div>
