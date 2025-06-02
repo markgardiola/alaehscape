@@ -12,6 +12,12 @@ const SignUp = () => {
     password: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -35,7 +41,19 @@ const SignUp = () => {
         navigate("/signIn");
         console.log(res);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.response && err.response.data && err.response.data.message) {
+          toast.error(err.response.data.message, {
+            position: "top-right",
+            autoClose: 3000,
+          });
+        } else {
+          toast.error("Something went wrong. Please try again.", {
+            position: "top-right",
+            autoClose: 3000,
+          });
+        }
+      });
   };
 
   return (
@@ -90,18 +108,30 @@ const SignUp = () => {
           <label htmlFor="password" className="mt-3 text-success">
             Password
           </label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter your password"
-            required
-            name="password"
-            onChange={handleChange}
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.2)",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
-            }}
-          />
+          <div className="input-group">
+            <input
+              type={showPassword ? "text" : "password"}
+              className="form-control"
+              placeholder="Enter your password"
+              required
+              name="password"
+              onChange={handleChange}
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                border: "1px solid rgba(255, 255, 255, 0.3)",
+              }}
+            />
+            <button
+              type="button"
+              className="btn btn-outline-success"
+              onClick={togglePasswordVisibility}
+              tabIndex={-1}
+            >
+              <i
+                className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}
+              ></i>
+            </button>
+          </div>
         </div>
 
         <div className="d-flex flex-column justify-content-center mt-4">
