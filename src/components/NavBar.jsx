@@ -78,28 +78,6 @@ const NavBar = () => {
                   About
                 </Link>
               </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Our Services
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item disabled">Staycation</a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item disabled">Adventure</a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item disabled">Camping</a>
-                  </li>
-                </ul>
-              </li>
             </ul>
             <ul className="navbar-nav ms-auto text-center d-flex align-items-center">
               {username && role !== "admin" ? (
