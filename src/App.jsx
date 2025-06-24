@@ -17,6 +17,8 @@ import Calatagan from "./pages/destinations/Calatagan";
 import Mabini from "./pages/destinations/Mabini";
 import Lian from "./pages/destinations/Lian";
 
+// Owner pages
+
 // Admin pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import UsersManagement from "./pages/admin/UsersManagement";
@@ -38,6 +40,7 @@ import MyBooking from "./pages/MyBooking";
 import ViewMyBooking from "./pages/ViewMyBooking";
 import Lobo from "./pages/destinations/Lobo";
 import Nasugbu from "./pages/destinations/Nasugbu";
+import OwnerDashboard from "./pages/owner/OwnerDashboard";
 
 const App = () => {
   return (
@@ -70,6 +73,8 @@ const App = () => {
               element={<SanJuanLaiya />}
             />
           </Route>
+          <Route path="/owner-dashboard" element={<OwnerDashboard />} />
+
           <Route
             path="adminDashboard"
             element={

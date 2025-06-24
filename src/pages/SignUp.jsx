@@ -10,6 +10,7 @@ const SignUp = () => {
     username: "",
     email: "",
     password: "",
+    role: "user",
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -67,6 +68,26 @@ const SignUp = () => {
         }}
       >
         <h1 className="text-center mb-4 text-success fw-bold">Sign Up</h1>
+
+        <div>
+          <label htmlFor="role" className="form-label text-success">
+            Account Type
+          </label>
+          <select
+            name="role"
+            className="form-select mb-3"
+            value={values.role}
+            onChange={handleChange}
+            required
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+            }}
+          >
+            <option value="user">User</option>
+            <option value="owner">Resort Owner</option>
+          </select>
+        </div>
 
         <div>
           <label htmlFor="username" className="form-label text-success">

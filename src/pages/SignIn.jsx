@@ -12,6 +12,8 @@ const SignIn = () => {
     password: "",
   });
 
+  const [role, setRole] = useState("user");
+
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -35,6 +37,7 @@ const SignIn = () => {
       .post(`${API_URL}/api/login`, {
         email: values.email,
         password: values.password,
+        role,
       })
       .then((res) => {
         if (res.data.token && res.data.user) {
@@ -56,7 +59,13 @@ const SignIn = () => {
             autoClose: 3000,
           });
 
-          navigate("/");
+          if (user.role === "owner") {
+            navigate("/owner-dashboard");
+          } else if (user.role === "admin") {
+            navigate("/admin-dashboard");
+          } else {
+            navigate("/");
+          }
         } else {
           alert("Invalid server response.");
         }
@@ -107,9 +116,32 @@ const SignIn = () => {
             />
           </div>
 
-          <div className="col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+          <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center p-4">
             <form onSubmit={handleSubmit} className="w-75" autoComplete="off">
               <h1 className="text-center mb-4 text-success fw-bold">Sign In</h1>
+
+              <div className="text-center mb-3">
+                <div className="btn-group">
+                  <button
+                    type="button"
+                    className={`btn btn-sm ${
+                      role === "user" ? "btn-success" : "btn-outline-success"
+                    }`}
+                    onClick={() => setRole("user")}
+                  >
+                    User
+                  </button>
+                  <button
+                    type="button"
+                    className={`btn btn-sm ${
+                      role === "owner" ? "btn-success" : "btn-outline-success"
+                    }`}
+                    onClick={() => setRole("owner")}
+                  >
+                    Resort Owner
+                  </button>
+                </div>
+              </div>
 
               <div>
                 <label htmlFor="email" className="form-label text-success">
